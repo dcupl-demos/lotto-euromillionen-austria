@@ -1,14 +1,23 @@
 {
-  "name": "dcupl-starter",
-  "version": "0.0.0",
-  "description": "",
+  "name": "lotto-euromillionen-austria",
+  "version": "1.0.0",
+  "description": "Lotto 6 aus 45 (1986-2026) and EuroMillionen (2004-2026) draws of the Austrian Lotteries as a dcupl workspace",
   "scripts": {
-    "serve": "npx dcupl serve"
+    "build:data": "python3 scripts/build-data.py",
+    "analyze": "python3 scripts/analyze.py",
+    "validate": "dcupl validate --json",
+    "serve": "dcupl serve"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcupl-demos/lotto-euromillionen-austria.git"
+  },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@dcupl/cli": "0.0.*"
+    "@dcupl/cli": "1.4.0-beta.5"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
