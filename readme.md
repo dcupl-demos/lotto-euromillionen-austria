@@ -36,6 +36,8 @@ Two models, 5,665 draws, one dcupl workspace:
 
 The analysis of the most drawn numbers and number combinations lives in [`analysis/README.md`](analysis/README.md).
 
+A walkthrough that loads this workspace with the dcupl CLI and queries it, with the real output of every command, is in the dcupl docs: [Austrian lottery example](https://docs.dcupl.com/learn/examples/austrian-lottery).
+
 ## Data source: win2day
 
 All data is published by win2day, the online gaming platform of the Austrian Lotteries:
@@ -52,10 +54,9 @@ python3 scripts/analyze.py      # dcupl/data/  ->  analysis/
 
 To add a new year, download the `NN_W2D_STAT_Lotto_<year>.csv` / `NN_W2D_STAT_EUML_<year>.csv` file into `_raw/`, add the resource to `dcupl/dcupl.lc.json` and rebuild.
 
-An earlier version of the Lotto data is published as a Kaggle dataset:
-[lottery-austria-1986-til-2022](https://www.kaggle.com/datasets/gernotbernkopf/lottery-austria-1986-til-2022).
-It reflects the state of 2022 and has not been updated since; the files in `dcupl/data/` supersede it and
-can be uploaded there to refresh it.
+The data is also published as a Kaggle dataset:
+[Lottery Austria: Lotto 1986-2026 + EuroMillionen](https://www.kaggle.com/datasets/gernotbernkopf/lottery-austria-1986-til-2022).
+It is linked to this repository and refreshed from it with the Update button on the dataset page.
 
 ## Model notes
 
