@@ -88,10 +88,12 @@ nvm use          # Node 24, see .nvmrc
 npm install
 ```
 
-The CLI is pinned in `devDependencies` (`@dcupl/cli` 1.4.0-beta.5, `@dcupl/*` 2.0.0-beta.18) and Node >= 22
+The CLI is pinned in `devDependencies` (`@dcupl/cli` 2.0.5, `@dcupl/*` 2.2.3) and Node >= 22
 is required - the daemon uses `require(esm)` and dies with `ERR_REQUIRE_ESM` on Node 20. Use `npx dcupl`
 (or the `npm run` scripts) so the pinned CLI is used rather than a possibly older global install; check with
 `npx dcupl --version`.
+`overrides` in `package.json` lift the CLI's `glob` and `minimatch` to their patched majors (14 and 11); drop them
+once a CLI release depends on those versions itself.
 
 ### 2) Validate and explore locally
 
