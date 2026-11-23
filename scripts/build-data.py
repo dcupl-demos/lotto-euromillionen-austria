@@ -169,6 +169,7 @@ def build_lotto_legacy(path, default_currency):
 
     out = []
     prev = None
+    seen_numbers = {}  # (asc, drawn, add) -> date of the first draw with exactly these numbers
     for r in rows[1:]:
         if not any(c.strip() for c in r):
             continue
@@ -187,12 +188,23 @@ def build_lotto_legacy(path, default_currency):
         if drawn[0] != "" and sorted(drawn) != asc:
             warn(f"lotto {date}: drawn order {drawn} does not match ascending numbers {asc} -> drawn order dropped")
             drawn = [""] * 6
+        add = to_int(get(r, "additionalNr"))
+        # The same six numbers in the same drawn order with the same additional number do not repeat by
+        # chance: such a row carries numbers copied from the earlier draw. Its date, winners and prize
+        # rates differ and are kept; the numbers are dropped because the real ones are unknown.
+        numbers = (tuple(asc), tuple(drawn), add)
+        if drawn[0] != "" and numbers in seen_numbers:
+            warn(f"lotto {date}: numbers, drawn order and additional number identical to "
+                 f"{seen_numbers[numbers]} -> copied in source, numbers dropped")
+            asc, drawn, add = [""] * 6, [""] * 6, ""
+        else:
+            seen_numbers.setdefault(numbers, date)
         tiers = {}
         for k in ("fiveAddNr", "five", "fourAddNr", "four", "threeAddNr", "three", "nrOfAddNr"):
             if k in idx:
                 rate_key = "rate" + k[0].upper() + k[1:]
                 tiers[k] = (get(r, k), get(r, rate_key))
-        out.append(lotto_row(date, currency, asc, drawn, to_int(get(r, "additionalNr")),
+        out.append(lotto_row(date, currency, asc, drawn, add,
                              get(r, "six"), get(r, "rateSix"), tiers))
     return out
 

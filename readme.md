@@ -43,7 +43,7 @@ All data is published by win2day, the online gaming platform of the Austrian Lot
 - Lotto: https://www.win2day.at/lotterie/lotto/lotto-statistik-zahlen-ergebnisse-download
 - EuroMillionen: https://www.win2day.at/lotterie/euromillionen/euromillionen-statistik-zahlen-ergebnisse-download
 
-The original exports are kept unchanged in `_raw/` (`legacy-data/` holds the revised 1986-2022 Lotto files of the first project version). `scripts/build-data.py` transforms them deterministically into the uniform files in `dcupl/data/`: one row per draw, `;`-separated, UTF-8, decimal point, no thousand separators. Every deviation from the source is a rule in the script and is logged when it applies (a duplicate line, a typo in the year, drawn orders that do not match the ascending numbers, mislabelled prize tiers).
+The original exports are kept unchanged in `_raw/` (`legacy-data/` holds the revised 1986-2022 Lotto files of the first project version). `scripts/build-data.py` transforms them deterministically into the uniform files in `dcupl/data/`: one row per draw, `;`-separated, UTF-8, decimal point, no thousand separators. Every deviation from the source is a rule in the script and is logged when it applies (a duplicate line, a typo in the year, drawn orders that do not match the ascending numbers, mislabelled prize tiers, and the numbers of 03.01.1995, which the source copied from 03.01.1993: that draw keeps its date, winners and prize rates, without numbers).
 
 ```
 python3 scripts/build-data.py   # _raw/  ->  dcupl/data/

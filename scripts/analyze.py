@@ -19,11 +19,17 @@ OUT = os.path.join(ROOT, "analysis")
 os.makedirs(OUT, exist_ok=True)
 
 
+WITHOUT_NUMBERS = []  # draws whose numbers build-data.py dropped (copied in the source)
+
+
 def load(pattern, nums, extra=()):
     rows = []
     for f in sorted(glob.glob(os.path.join(DATA, pattern))):
         for r in csv.DictReader(open(f, encoding="utf-8"), delimiter=";"):
             d = dt.datetime.strptime(r["date"], "%d.%m.%Y").date()
+            if any(r[k] == "" for k in nums):
+                WITHOUT_NUMBERS.append((pattern, d))
+                continue
             rows.append({"date": d, "nums": tuple(int(r[k]) for k in nums),
                          **{k: (int(r[k]) if r[k] != "" else None) for k in extra}})
     rows.sort(key=lambda x: x["date"])
@@ -148,7 +154,10 @@ def lotto_additional(rows):
     md.append(md_table(["Number", "Drawn as Zusatzzahl"], top) + "\n")
 
 
-section("Lotto 6 aus 45, all draws 1986-2026", lotto, range(1, 46), (2, 3, 4), "6-number combination", lotto_additional)
+lotto_without = sorted(d for p, d in WITHOUT_NUMBERS if p.startswith("lotto"))
+section("Lotto 6 aus 45, all draws 1986-2026", lotto, range(1, 46), (2, 3, 4), "6-number combination", lotto_additional,
+        extra_note="".join(f" The draw of {d:%d.%m.%Y} is left out: its numbers were copied from an earlier draw "
+                           "in the source, so the build drops them." for d in lotto_without))
 section("Lotto 6 aus 45, last three years", [r for r in lotto if r["date"] >= THREE_YEARS], range(1, 46), (2, 3),
         "6-number combination", lotto_additional,
         extra_note=" Includes the Friday draws (monthly since 2023, every two weeks since 25.07.2025).")
