@@ -5,7 +5,7 @@ Reproduce with the commands as given, from the project root, after `nvm use && n
 
 | | |
 |---|---|
-| Date of run | 22.09.2026 |
+| Date of run | 22.09.2026; sections 1 and 2 re-run 23.11.2026 after the 03.01.1995 rule |
 | Node | v24.14.1 (`.nvmrc`: 24) |
 | CLI | `@dcupl/cli` 1.4.0-beta.5, `@dcupl/{core,common,common-internal,loader}` 2.0.0-beta.18 |
 
