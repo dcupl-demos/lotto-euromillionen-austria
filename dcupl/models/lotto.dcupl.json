@@ -2,320 +2,48 @@
   "key": "lotto",
   "autoGenerateKey": true,
   "properties": [
-    {
-      "key": "weekday",
-      "type": "string",
-      "filter": true,
-      "meta": {
-        "name": "Weekday",
-        "description": "Day of the week of the lottery drawing"
-      }
-    },
-    {
-      "key": "date",
-      "type": "date",
-      "inputFormat": "dd.MM.yyyy",
-      "filter": true,
-      "meta": {
-        "name": "Date",
-        "description": "Date of the lottery drawing"
-      }
-    },
-    {
-      "key": "numbersAsc",
-      "type": "string",
-      "expression": "${nr1asc}, ${nr2asc}, ${nr3asc}, ${nr4asc}, ${nr5asc}, ${nr6asc}, ${additionalNr}",
-      "filter": true,
-      "meta": {
-        "name": "Numbers drawn ASC",
-        "description": "All numbers which have been drawn, sorted in ascending order"
-      }
-    },
-    {
-      "key": "numbersDrawn",
-      "type": "string",
-      "expression": "${nr1}, ${nr2}, ${nr3}, ${nr4}, ${nr5}, ${nr6}, ${additionalNr}",
-      "filter":true,
-      "meta": {
-        "name": "Numbers drawn",
-        "description": "All numbers which have been drawn (unsorted, not included in each data resource)"
-      }
-    },
-    {
-      "key": "nr1",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 1",
-        "description": "1st drawn number (not included in each data resource)"
-      }
-    },
-    {
-      "key": "nr2",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 2",
-        "description": "2nd drawn number (not included in each data resource)"
-      }
-    },
-    {
-      "key": "nr3",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 3",
-        "description": "Third drawn number (not included in each data resource)"
-      }
-    },
-    {
-      "key": "nr4",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 4",
-        "description": "Fourth drawn number (not included in each data resource)"
-      }
-    },
-    {
-      "key": "nr5",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 5",
-        "description": "Fifth drawn number (not included in each data resource)"
-      }
-    },
-    {
-      "key": "nr6",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 6",
-        "description": "Sixth drawn number (not included in each data resource)"
-      }
-    },
-    {
-      "key": "nr1asc",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 1 ASC",
-        "description": "Lowest number which has been drawn"
-      }
-    },
-    {
-      "key": "nr2asc",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 2 ASC",
-        "description": "Seconde lowest number which has been drawn"
-      }
-    },
-    {
-      "key": "nr3asc",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 3 ASC",
-        "description": "Third lowest number which has been drawn"
-      }
-    },
-    {
-      "key": "nr4asc",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 4 ASC",
-        "description": "Third highest number which has been drawn"
-      }
-    },
-    {
-      "key": "nr5asc",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 5 ASC",
-        "description": "Second highest number which has been drawn"
-      }
-    },
-    {
-      "key": "nr6asc",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Number 6 ASC",
-        "description": "Highest number which has been drawn"
-      }
-    },
-    {
-      "key": "additionalNr",
-      "type": "int",
-      "filter":true,
-      "meta": {
-        "name": "Additional number",
-        "description": "Additional number (Zusatzzahl) which has been drawn"
-      }
-    },
-    {
-      "key": "six",
-      "type": "string",
-      "filter":true,
-      "meta": {
-        "name": "Six",
-        "description": "Six correct numbers"
-      }
-    },
-    {
-      "key": "rateSix",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize Rate",
-        "description": "Prize rate for six correct numbers"
-      }
-    },
-    {
-      "key": "fiveAddNr",
-      "type": "int",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Five + Additional Number",
-        "description": "Five correct numbers + correct additional number"
-      }
-    },
-    {
-      "key": "rateFiveAddNr",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize Rate",
-        "description": "Prize rate for five correct numbers + correct additional number"
-      }
-    },
-    {
-      "key": "five",
-      "type": "int",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Five",
-        "description": "Five correct numbers"
-      }
-    },
-    {
-      "key": "rateFive",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize Rate",
-        "description": "Prize rate for five correct numbers"
-      }
-    },
-    {
-      "key": "fourAddNr",
-      "type": "int",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Four + Additional Number",
-        "description": "Four correct numbers + correct additional number"
-      }
-    },
-    {
-      "key": "rateFourAddNr",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize Rate",
-        "description": "Prize rate for four correct numbers + correct additional number"
-      }
-    },
-    {
-      "key": "four",
-      "type": "int",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Four",
-        "description": "Four correct numbers"
-      }
-    },
-    {
-      "key": "rateFour",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize Rate",
-        "description": "Prize rate for four correct numbers"
-      }
-    },
-    {
-      "key": "threeAddNr",
-      "type": "int",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Three + Additional Number",
-        "description": "Three correct numbers + correct additional number"
-      }
-    },
-    {
-      "key": "rateThreeAddNr",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize Rate",
-        "description": "Prize rate for three correct numbers + correct additional number"
-      }
-    },
-    {
-      "key": "three",
-      "type": "int",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Three",
-        "description": "Three correct numbers"
-      }
-    },
-    {
-      "key": "rateThree",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize Rate",
-        "description": "Prize rate for three correct numbers"
-      }
-    },
-    {
-      "key": "nrOfAddNr",
-      "type": "int",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "NrOf Additional Numbers",
-        "description": "Amount of drawn additional numbers"
-      }
-    },
-    {
-      "key": "rateAddNr",
-      "type": "float",
-      "filter":true,
-      "aggregate": true,
-      "meta": {
-        "name": "Prize rate additional number",
-        "description": "Prize rate for the additional number"
-      }
-    }
+    { "key": "weekday", "type": "string", "filter": true, "meta": { "name": "Weekday", "description": "Day of the week of the draw (Sunday/Wednesday; Friday = extra draws since 2023, regular since 2025; other days = holiday draws)" } },
+    { "key": "date", "type": "date", "inputFormat": "dd.MM.yyyy", "UTC": true, "filter": true, "meta": { "name": "Date", "description": "Date of the draw" } },
+    { "key": "year", "type": "int", "filter": true, "meta": { "name": "Year", "description": "Year of the draw" } },
+    { "key": "currency", "type": "string", "filter": true, "meta": { "name": "Currency", "description": "Currency of all prize rates in this row: ATS until 2000, EUR since 2001" } },
+
+    { "key": "numbersAsc", "type": "string", "expression": "${nr1asc}, ${nr2asc}, ${nr3asc}, ${nr4asc}, ${nr5asc}, ${nr6asc}", "filter": true, "meta": { "name": "Numbers ASC", "description": "The six drawn numbers (1-45), ascending" } },
+    { "key": "numbersAscWithAdditional", "type": "string", "expression": "${nr1asc}, ${nr2asc}, ${nr3asc}, ${nr4asc}, ${nr5asc}, ${nr6asc} + ${additionalNr}", "filter": true, "meta": { "name": "Numbers ASC + additional", "description": "Six numbers ascending plus the additional number (Zusatzzahl)" } },
+    { "key": "numbersDrawn", "type": "string", "expression": "${nr1}, ${nr2}, ${nr3}, ${nr4}, ${nr5}, ${nr6}", "filter": true, "meta": { "name": "Numbers drawn", "description": "The six numbers in drawn order (not published for every period)" } },
+
+    { "key": "nr1asc", "type": "int", "filter": true, "meta": { "name": "Number 1 ASC", "description": "Lowest drawn number" } },
+    { "key": "nr2asc", "type": "int", "filter": true, "meta": { "name": "Number 2 ASC", "description": "Second lowest drawn number" } },
+    { "key": "nr3asc", "type": "int", "filter": true, "meta": { "name": "Number 3 ASC", "description": "Third lowest drawn number" } },
+    { "key": "nr4asc", "type": "int", "filter": true, "meta": { "name": "Number 4 ASC", "description": "Third highest drawn number" } },
+    { "key": "nr5asc", "type": "int", "filter": true, "meta": { "name": "Number 5 ASC", "description": "Second highest drawn number" } },
+    { "key": "nr6asc", "type": "int", "filter": true, "meta": { "name": "Number 6 ASC", "description": "Highest drawn number" } },
+    { "key": "additionalNr", "type": "int", "filter": true, "meta": { "name": "Additional number", "description": "Additional number (Zusatzzahl)" } },
+
+    { "key": "nr1", "type": "int", "filter": true, "meta": { "name": "Number 1", "description": "1st drawn number (published 1986-2016 only)" } },
+    { "key": "nr2", "type": "int", "filter": true, "meta": { "name": "Number 2", "description": "2nd drawn number (published 1986-2016 only)" } },
+    { "key": "nr3", "type": "int", "filter": true, "meta": { "name": "Number 3", "description": "3rd drawn number (published 1986-2016 only)" } },
+    { "key": "nr4", "type": "int", "filter": true, "meta": { "name": "Number 4", "description": "4th drawn number (published 1986-2016 only)" } },
+    { "key": "nr5", "type": "int", "filter": true, "meta": { "name": "Number 5", "description": "5th drawn number (published 1986-2016 only)" } },
+    { "key": "nr6", "type": "int", "filter": true, "meta": { "name": "Number 6", "description": "6th drawn number (published 1986-2016 only)" } },
+
+    { "key": "six", "type": "string", "filter": true, "meta": { "name": "Six (raw)", "description": "Winners with six correct numbers as published: a count, or JP / DJP / 3JP ... when the jackpot rolled over" } },
+    { "key": "sixWinners", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Six", "description": "Winners with six correct numbers (0 when the jackpot rolled over)" } },
+    { "key": "jackpotStreak", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Jackpot streak", "description": "Consecutive rollovers incl. this draw: JP = 1, DJP = 2, 3JP = 3 ...; 0 when the jackpot was won" } },
+    { "key": "rateSix", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize six", "description": "Prize per winner (or jackpot amount when rolled over)" } },
+    { "key": "fiveAddNr", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Five + additional", "description": "Winners with five correct numbers + additional number (empty when rolled over)" } },
+    { "key": "fiveAddNrJackpot", "type": "string", "filter": true, "meta": { "name": "Five + additional jackpot", "description": "Set (JP/DJP) when the 5+additional tier had no winner" } },
+    { "key": "rateFiveAddNr", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize five + additional", "description": "Prize per winner, 5 + additional number" } },
+    { "key": "five", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Five", "description": "Winners with five correct numbers" } },
+    { "key": "rateFive", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize five", "description": "Prize per winner, five correct numbers" } },
+    { "key": "fourAddNr", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Four + additional", "description": "Winners with four correct numbers + additional number (tier since Sept 2010)" } },
+    { "key": "rateFourAddNr", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize four + additional", "description": "Prize per winner, 4 + additional number (tier since Sept 2010)" } },
+    { "key": "four", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Four", "description": "Winners with four correct numbers" } },
+    { "key": "rateFour", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize four", "description": "Prize per winner, four correct numbers" } },
+    { "key": "threeAddNr", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Three + additional", "description": "Winners with three correct numbers + additional number (tier since Sept 2010)" } },
+    { "key": "rateThreeAddNr", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize three + additional", "description": "Prize per winner, 3 + additional number (tier since Sept 2010)" } },
+    { "key": "three", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Three", "description": "Winners with three correct numbers" } },
+    { "key": "rateThree", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize three", "description": "Prize per winner, three correct numbers" } },
+    { "key": "nrOfAddNr", "type": "int", "filter": true, "aggregate": true, "meta": { "name": "Additional number only", "description": "Winners with the additional number only (tier since Sept 2010)" } },
+    { "key": "rateAddNr", "type": "float", "filter": true, "aggregate": true, "meta": { "name": "Prize additional number", "description": "Prize per winner, additional number only (tier since Sept 2010)" } }
   ]
 }

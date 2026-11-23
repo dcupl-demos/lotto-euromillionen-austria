@@ -1,26 +1,42 @@
 {
   "applications": [
     {
-      "key": "default (ATS + EUR mixed)",
-      "description": "Drawn numbers of the Austrian Lotteries, starting in 1986 up to 2023",
-      "name": "Lotto 1986-2023 (ATS+EUR mixed)",
+      "key": "default",
+      "name": "Lotto 1986-2026 + EuroMillionen 2004-2026",
+      "description": "All draws of the Austrian Lotteries: Lotto 6 aus 45 since 1986 (ATS and EUR prize rates mixed) and EuroMillionen since 2004",
       "resourceTags": []
     },
     {
-      "key": "ATS",
-      "description": "Drawn numbers of the Austrian Lotteries, starting in 1986 up to 2000",
+      "key": "lotto",
+      "name": "Lotto 1986-2026 (ATS+EUR mixed)",
+      "description": "Lotto 6 aus 45, all draws since 07.09.1986; prize rates in ATS until 2000 and EUR since 2001 (see column currency)",
       "resourceTags": [
-        "ATS"
-      ],
-      "name": "Lotto 1986-2000 (ATS)"
+        "lotto"
+      ]
     },
     {
-      "key": "EUR",
-      "description": "Drawn numbers of the Austrian Lotteries, starting in 2001 up to 2023 Jan.",
+      "key": "lotto-ATS",
+      "name": "Lotto 1986-2000 (ATS)",
+      "description": "Lotto 6 aus 45, draws 1986-2000, prize rates in Austrian Schilling",
+      "resourceTags": [
+        "ATS"
+      ]
+    },
+    {
+      "key": "lotto-EUR",
+      "name": "Lotto 2001-2026 (EUR)",
+      "description": "Lotto 6 aus 45, draws since 2001, prize rates in EUR",
       "resourceTags": [
         "EUR"
-      ],
-      "name": "Lotto 2001-2023 (EUR)"
+      ]
+    },
+    {
+      "key": "euromillionen",
+      "name": "EuroMillionen 2004-2026",
+      "description": "EuroMillionen, all draws since 13.02.2004, winners in Europe and Austria per hit combination",
+      "resourceTags": [
+        "euromillionen"
+      ]
     }
   ],
   "resources": [
@@ -28,8 +44,16 @@
       "url": "${baseUrl}/models/lotto.dcupl.json",
       "type": "model",
       "tags": [
-        "EUR",
-        "ATS"
+        "lotto",
+        "ATS",
+        "EUR"
+      ]
+    },
+    {
+      "url": "${baseUrl}/models/euromillionen.dcupl.json",
+      "type": "model",
+      "tags": [
+        "euromillionen"
       ]
     },
     {
@@ -40,6 +64,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "ATS"
       ]
     },
@@ -51,6 +76,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
       ]
     },
@@ -62,6 +88,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
       ]
     },
@@ -73,6 +100,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
       ]
     },
@@ -84,6 +112,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
       ]
     },
@@ -95,6 +124,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
       ]
     },
@@ -106,6 +136,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
       ]
     },
@@ -117,6 +148,7 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
       ]
     },
@@ -128,7 +160,165 @@
         "updateType": "upsert"
       },
       "tags": [
+        "lotto",
         "EUR"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/lotto-ziehungen-2024_EUR.csv",
+      "type": "data",
+      "model": "lotto",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "lotto",
+        "EUR"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/lotto-ziehungen-2025_EUR.csv",
+      "type": "data",
+      "model": "lotto",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "lotto",
+        "EUR"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/lotto-ziehungen-2026_EUR.csv",
+      "type": "data",
+      "model": "lotto",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "lotto",
+        "EUR"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2004-2016.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2017.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2018.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2019.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2020.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2021.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2022.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2023.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2024.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2025.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
+      ]
+    },
+    {
+      "url": "${baseUrl}/data/euromillionen-2026.csv",
+      "type": "data",
+      "model": "euromillionen",
+      "options": {
+        "updateType": "upsert"
+      },
+      "tags": [
+        "euromillionen"
       ]
     }
   ]
